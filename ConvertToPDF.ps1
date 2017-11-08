@@ -1,5 +1,5 @@
 # Use the -baseDir Param to define at which level the directory will be recreated in the destination
-# gci 'C:\admin\HR_Migration\Bewerbungen 2017' -Recurse -Filter eva*.docx | .\ConvertToPDF.ps1 -docType docx -destDir C:\temp -baseDir C:\admin\HR_Migration
+# gci 'C:\admin\Migration\whatever 2017' -Recurse -Filter eva*.docx | .\ConvertToPDF.ps1 -docType docx -destDir C:\temp -baseDir C:\admin\Migration
 # C:\_Themis_365\ConvertOfficeDocsToPDF-master>  gci 'z:\Migration\1 MIG\BGM (Archiv)' -Filter *.do* -Recurse  | .\ConvertToPDF.ps1 -docType doc -destDir C:\_Themis_365\ConvertOfficeDocsToPDF-master\target -baseDir 'z:\Migration\1 MIG\BGM(Archiv)'
 [cmdletbinding()]
 param(
@@ -11,7 +11,7 @@ HelpMessage="Literal path to one or more locations.")][string[]] $LiteralPath,
 [Parameter()][ValidateSet('doc', 'xls', 'ppt')][string] $docType,
 [Parameter(Mandatory=$true)][string] $destDir,
 [Parameter(Mandatory=$true)][string] $baseDir,
-[Parameter(Mandatory=$false)][string] $logFile
+[Parameter(Mandatory=$true)][string] $logFile
 )
 Begin {
     $baseDir = $baseDir.TrimEnd('\')
